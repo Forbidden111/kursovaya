@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Main {
     private final static kursovaya[] employees = new kursovaya[10];
 
@@ -14,12 +16,16 @@ public class Main {
         employees[8] = new kursovaya("idrisov alex", 4, 89_000);
         employees[9] = new kursovaya("krakenova megan", 5, 31_000);
 
-        printAll();
-        System.out.println(sum());
-        System.out.println(min());
-        System.out.println(max());
-        System.out.println(avarage());
-        prinAllNames();
+//        printAll();
+//        System.out.println(sum());
+//        System.out.println(min());
+//        System.out.println(max());
+//        System.out.println(avarage());
+//        prinAllNames();
+        int[] ints1 = new int[]{
+                1,2,3
+        };
+        task(ints1);
 
 
     }
@@ -71,4 +77,14 @@ public class Main {
 
         }
     }
+
+    private static void task(int[] ints ){
+        int[] result = new int[ints.length];
+        for (int i = 0; i <ints.length ; i++) {
+            result[ints.length - i - 1] = ints[i];
+
+        }
+        System.out.println(Arrays.toString(result));
+    }
+
 }
