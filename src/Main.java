@@ -1,17 +1,90 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import java.util.Arrays;
+
 public class Main {
+    private final static kursovaya[] employees = new kursovaya[10];
+
+
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        employees[0] = new kursovaya("ivanov ivan", 1, 10_000);
+        employees[1] = new kursovaya("ivanov igor", 2, 12_000);
+        employees[2] = new kursovaya("ivanov andrey", 3, 16_000);
+        employees[3] = new kursovaya("ivanov maksim", 4, 19_000);
+        employees[4] = new kursovaya("ivanov vlad", 5, 23_000);
+        employees[5] = new kursovaya("kostin kosty", 1, 54_000);
+        employees[6] = new kursovaya("ibis dibir", 2, 67_000);
+        employees[7] = new kursovaya("maikl djony", 3, 78_000);
+        employees[8] = new kursovaya("idrisov alex", 4, 89_000);
+        employees[9] = new kursovaya("krakenova megan", 5, 31_000);
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+//        printAll();
+//        System.out.println(sum());
+//        System.out.println(min());
+//        System.out.println(max());
+//        System.out.println(avarage());
+//        prinAllNames();
+        int[] ints1 = new int[]{
+                1,2,3
+        };
+        task(ints1);
 
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
+
+    }
+
+    private static void printAll() {
+        for (kursovaya employee : employees) {
+            System.out.println(employee);
+
         }
     }
+
+    private static double sum() {
+        double sum = 0.0;
+        for (kursovaya employee : employees) {
+            sum += employee.getSalary();
+        }
+        return sum;
+    }
+
+    private  static kursovaya min(){
+        kursovaya minKursovaya = null;
+        for (kursovaya employee : employees){
+            if (minKursovaya == null ||employee.getSalary()< minKursovaya.getSalary()) {
+                minKursovaya = employee;
+            }
+        }
+        return minKursovaya;
+    }
+
+
+
+    private  static kursovaya max(){
+        kursovaya maxKursovaya = null;
+        for (kursovaya employee : employees){
+            if (maxKursovaya == null ||employee.getSalary() > maxKursovaya.getSalary()) {
+                maxKursovaya = employee;
+            }
+        }
+        return maxKursovaya;
+    }
+
+    private static double avarage(){
+        return sum() / employees.length;
+    }
+
+    private static void  prinAllNames(){
+        for (kursovaya employee : employees) {
+            System.out.println(employee.getFullName());
+
+        }
+    }
+
+    private static void task(int[] ints ){
+        int[] result = new int[ints.length];
+        for (int i = 0; i <ints.length ; i++) {
+            result[ints.length - i - 1] = ints[i];
+
+        }
+        System.out.println(Arrays.toString(result));
+    }
+
 }
